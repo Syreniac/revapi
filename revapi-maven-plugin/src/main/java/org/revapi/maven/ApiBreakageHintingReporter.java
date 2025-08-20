@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2023 Lukas Krejci
+ * Copyright 2014-2025 Lukas Krejci
  * and other contributors as indicated by the @author tags.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -48,7 +48,7 @@ public final class ApiBreakageHintingReporter implements Reporter {
                 if (breaking) {
                     changeLevel = ApiChangeLevel.BREAKING_CHANGES;
                     break LOOP;
-                } else {
+                } else if (s != DifferenceSeverity.EQUIVALENT) {
                     changeLevel = ApiChangeLevel.NON_BREAKING_CHANGES;
                 }
             }
